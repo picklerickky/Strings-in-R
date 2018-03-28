@@ -58,6 +58,45 @@ headers = str_sub(emails, start = 1, end = breaks[,1])
 bodies = str_sub(emails, start = breaks[,2])
 cat(bodies[3])
 
+################ second lab
+fruit = c("apple", "banana","pear","pinapple")
+
+## 2.
+str_detect(fruit, "a")
+
+# pattern starts with a
+str_detect(fruit, "^a")
+
+# ends with a
+str_detect(fruit, "a$")
+
+## check if it has a or e or i or o or u
+str_detect(fruit, "[aeiou]")
+
+## 
+str_detect(fruit, "[a-d]") ## [a-d] = [abcd] ## [a-z]
+
+str_detect(fruit, "[0-9]")
+
+## 3.
+str_detect(fruit, "^a[a-z]*e$")
+# .* means it could be any character or number then just letter
+
+## 4.
+phone = "213 740 4826"
+str_detect(phone, "[0-9]{3} [0-9]{3} [0-9]{4}")
+
+phone1 = c("213 740 4826", "213-740-4826")
+str_detect(phone1, "[0-9]{3}[ -][0-9]{3}[- ][0-9]{4}")
+
+phone2 = c("213 740 4826", "213-740-4826", "(213) 922 0087")
+str_detect(phone2, ".*[0-9]{3}.*[ -][0-9]{3}[- ][0-9]{4}")
+## another way
+str_detect(phone2, "[(]?[0-9]{3}[)]?[ -][0-9]{3}[- ][0-9]{4}")
+
+## 5
+str_extract_all(bodies, "[(]?[0-9]{3}[)]?[ -][0-9]{3}[- ][0-9]{4}")
+
 
 
 
